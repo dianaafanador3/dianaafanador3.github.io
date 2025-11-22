@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiAfanador - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="main-title">DiAfanador</h1>
+        </header>
+        
+        <main>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item active">
+                        <!-- Link to project page -->
+                        <a href="project1/project1.html" class="project-link">
+                            <img src="project-1.png" alt="Project 1" class="carousel-image">
+                            <div class="project-overlay">
+                                <p class="project-title">Calidoscopi</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Navigation dots (for when more images are added) -->
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
