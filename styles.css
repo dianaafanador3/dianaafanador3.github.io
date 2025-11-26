@@ -8,11 +8,16 @@ body {
     font-family: 'Courier New', monospace;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #00ff00;
-    min-height: 100vh;
+    min-height: 100vh; /* Fallback for older browsers */
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    padding: max(10px, 4vw);
+    -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
 }
 
 .container {
@@ -23,13 +28,14 @@ body {
 
 header {
     margin-bottom: 60px;
+    margin-bottom: clamp(30px, 8vw, 60px);
 }
 
 .main-title {
     font-family: 'Press Start 2P', 'Courier New', monospace;
     font-size: clamp(3rem, 8vw, 6rem);
     color: #00ff00;
-    text-shadow: 
+    text-shadow:
         0 0 10px #00ff00,
         0 0 20px #00ff00,
         0 0 30px #00ff00;
@@ -40,13 +46,13 @@ header {
 
 @keyframes glow {
     from {
-        text-shadow: 
+        text-shadow:
             0 0 10px #00ff00,
             0 0 20px #00ff00,
             0 0 30px #00ff00;
     }
     to {
-        text-shadow: 
+        text-shadow:
             0 0 20px #00ff00,
             0 0 30px #00ff00,
             0 0 40px #00ff00,
@@ -65,15 +71,71 @@ main {
     margin: 0 auto;
 }
 
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 255, 0, 0.2);
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 10px #00ff00;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 255, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .carousel-prev {
+        left: 5px;
+    }
+
+    .carousel-next {
+        right: 5px;
+    }
+}
+
 .carousel {
     position: relative;
     width: 100%;
     overflow: hidden;
     border: 3px solid #00ff00;
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(0, 255, 0, 0.5),
         inset 0 0 20px rgba(0, 255, 0, 0.1);
     background: #000;
+    touch-action: pan-y pinch-zoom;
 }
 
 .carousel-item {
@@ -91,16 +153,21 @@ main {
     width: 100%;
     text-decoration: none;
     overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .carousel-image {
     width: 100%;
     height: auto;
-    min-height: 400px;
+    min-height: clamp(250px, 50vh, 400px);
     display: block;
     transition: transform 0.3s ease;
     object-fit: cover;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .project-link:hover .carousel-image {
@@ -125,7 +192,7 @@ main {
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     font-weight: bold;
     margin-bottom: 5px;
     text-shadow: 0 0 10px #00ff00;
@@ -145,12 +212,19 @@ main {
     cursor: pointer;
     height: 15px;
     width: 15px;
+    height: clamp(12px, 3vw, 15px);
+    width: clamp(12px, 3vw, 15px);
     margin: 0 5px;
+    margin: 0 clamp(3px, 1.5vw, 5px);
     background-color: #333;
     border: 2px solid #00ff00;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 255, 0, 0.3);
 }
 
 .dot:hover {
@@ -165,18 +239,123 @@ main {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: clamp(2rem, 6vw, 4rem);
+    body {
+        padding: 10px;
     }
-    
+
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .main-title {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+        letter-spacing: 0.05em;
+        margin-bottom: 15px;
+    }
+
+    header {
+        margin-bottom: 30px;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .carousel {
+        border-width: 2px;
+    }
+
+    .carousel-image {
+        min-height: clamp(200px, 40vh, 300px);
+    }
+
     .project-overlay {
         transform: translateY(0);
         position: relative;
         background: rgba(0, 0, 0, 0.9);
+        padding: 15px;
     }
-    
-    .project-link:hover .project-overlay {
+
+    .project-link:hover .project-overlay,
+    .project-link:active .project-overlay {
         transform: translateY(0);
+    }
+
+    .project-link:hover .carousel-image,
+    .project-link:active .carousel-image {
+        transform: scale(1);
+    }
+
+    .carousel-dots {
+        margin-top: 15px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 4px;
     }
 }
 
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .main-title {
+        font-size: clamp(1.2rem, 7vw, 2.5rem);
+        margin-bottom: 10px;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    .carousel-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .carousel-prev {
+        left: 3px;
+    }
+
+    .carousel-next {
+        right: 3px;
+    }
+
+    .carousel-image {
+        min-height: clamp(180px, 35vh, 250px);
+    }
+
+    .project-overlay {
+        padding: 12px;
+    }
+
+    .project-title {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .carousel-nav {
+        background: rgba(0, 255, 0, 0.3);
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .carousel-nav:active {
+        background: rgba(0, 255, 0, 0.5);
+        transform: translateY(-50%) scale(0.9);
+    }
+
+    .dot {
+        min-width: 16px;
+        min-height: 16px;
+    }
+}

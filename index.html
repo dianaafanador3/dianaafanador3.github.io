@@ -1,43 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiAfanador - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1 class="main-title">DiAfanador</h1>
-        </header>
-        
-        <main>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-item active">
-                        <!-- Link to project page -->
-                        <a href="project1/project1.html" class="project-link">
-                            <img src="project-1.png" alt="Project 1" class="carousel-image">
-                            <div class="project-overlay">
-                                <p class="project-title">Calidoscopi</p>
-                            </div>
-                        </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>DiAfanador - Portfolio</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 class="main-title">DiAfanador</h1>
+            </header>
+
+            <main>
+                <div class="carousel-container">
+                    <button
+                        class="carousel-nav carousel-prev"
+                        onclick="changeSlide(-1)"
+                        aria-label="Previous project"
+                    >
+                        ‹
+                    </button>
+                    <button
+                        class="carousel-nav carousel-next"
+                        onclick="changeSlide(1)"
+                        aria-label="Next project"
+                    >
+                        ›
+                    </button>
+
+                    <div class="carousel">
+                        <div class="carousel-item active">
+                            <!-- Link to project page -->
+                            <a href="project1/project1.html" class="project-link">
+                                <img
+                                    src="project-1-sketch-only.png"
+                                    alt="Project 1"
+                                    class="carousel-image"
+                                />
+                                <div class="project-overlay">
+                                    <p class="project-title">Calidoscopi</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <!-- Link to project page -->
+                            <a href="project2/project2.html" class="project-link">
+                                <img
+                                    src="project-2-sketch-only.png"
+                                    alt="Project 2"
+                                    class="carousel-image"
+                                />
+                                <div class="project-overlay">
+                                    <p class="project-title">Motlle</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation dots -->
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
                     </div>
                 </div>
-                
-                <!-- Navigation dots (for when more images are added) -->
-                <div class="carousel-dots">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                </div>
-            </div>
-        </main>
-    </div>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+            </main>
+        </div>
 
+        <script src="script.js"></script>
+    </body>
+</html>
