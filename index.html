@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -21,6 +21,7 @@
         <div class="container">
             <header>
                 <h1 class="main-title">DiAfanador</h1>
+                <p class="subtitle">Designer & Developer</p>
             </header>
 
             <main>
@@ -30,49 +31,56 @@
                         onclick="changeSlide(-1)"
                         aria-label="Previous project"
                     >
-                        ‹
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
                     </button>
                     <button
                         class="carousel-nav carousel-next"
                         onclick="changeSlide(1)"
                         aria-label="Next project"
                     >
-                        ›
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
                     </button>
 
                     <div class="carousel">
                         <div class="carousel-item active">
-                            <!-- Link to project page -->
-                            <a href="project1/project1.html" class="project-link">
-                                <img
-                                    src="project-1-sketch-only.png"
-                                    alt="Project 1"
-                                    class="carousel-image"
-                                />
-                                <div class="project-overlay">
-                                    <p class="project-title">Calidoscopi</p>
+                            <a href="project1/project1.html" class="project-card">
+                                <div class="project-image-wrapper">
+                                    <img
+                                        src="project-1-sketch-only.png"
+                                        alt="Calidoscopi Project"
+                                        class="carousel-image"
+                                    />
+                                </div>
+                                <div class="project-info">
+                                    <h2 class="project-title">Calidoscopi</h2>
+                                    <p class="project-number">01</p>
                                 </div>
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <!-- Link to project page -->
-                            <a href="project2/project2.html" class="project-link">
-                                <img
-                                    src="project-2-sketch-only.png"
-                                    alt="Project 2"
-                                    class="carousel-image"
-                                />
-                                <div class="project-overlay">
-                                    <p class="project-title">Motlle</p>
+                            <a href="project2/project2.html" class="project-card">
+                                <div class="project-image-wrapper">
+                                    <img
+                                        src="project-2-sketch-only.png"
+                                        alt="Motlle Project"
+                                        class="carousel-image"
+                                    />
+                                </div>
+                                <div class="project-info">
+                                    <h2 class="project-title">Motlle</h2>
+                                    <p class="project-number">02</p>
                                 </div>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Navigation dots -->
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <button class="dot active" onclick="currentSlide(1)" aria-label="View project 1"></button>
+                        <button class="dot" onclick="currentSlide(2)" aria-label="View project 2"></button>
                     </div>
                 </div>
             </main>
