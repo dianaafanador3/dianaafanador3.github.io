@@ -7,7 +7,8 @@ export interface Project {
   description: Record<Locale, string>
   thumbnail: string
   href: string
-  tech: string[]
+  /** Optional tags shown on the card, per language */
+  tags?: Record<Locale, string>[]
   number: string
   year: string
 }

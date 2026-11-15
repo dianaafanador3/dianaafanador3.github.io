@@ -99,7 +99,7 @@ const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
       <div class="demo">
         <p class="t-label t-muted">LinkCard</p>
         <div class="demo__cards">
-          <LinkCard eyebrow="Featured" title="Motlle" meta="Generative sketch · p5.js" to="/system" />
+          <LinkCard eyebrow="Featured" title="Motlle" meta="Generative art" to="/system" />
           <LinkCard eyebrow="Career" title="Resume" meta="10 years · 10 roles" to="/system" />
         </div>
       </div>
