@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#141414"/>
-  <text x="10" y="48" font-family="'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-2" fill="#fbfaf7">D</text>
-  <circle cx="47" cy="44" r="5.5" fill="#e8590c"/>
+  <g font-family="'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" fill="#fbfaf7">
+    <text x="5" y="47" font-size="44" letter-spacing="-2">D</text>
+    <text x="35.5" y="47" font-size="19" letter-spacing="-0.5">&#x131;d&#x131;</text>
+  </g>
+  <circle cx="37.6" cy="29.5" r="2.4" fill="#e8590c"/>
+  <circle cx="55.4" cy="29.5" r="2.4" fill="#e8590c"/>
 </svg>
