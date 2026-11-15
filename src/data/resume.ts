@@ -152,7 +152,7 @@ export const experience: Job[] = [
     ],
   },
   {
-    company: 'IN2 — Ingeniería de la Información',
+    company: 'IN2 Ingeniería de la Información',
     roles: [
       {
         title: same('Junior iOS Developer · Junior Java Engineer'),
@@ -230,7 +230,7 @@ export const education: Study[] = [
       es: 'Máster en Ingeniería del Software, Ingeniería Informática',
       ca: 'Màster en Enginyeria del Programari, Enginyeria Informàtica',
     },
-    period: '2014 — 2017',
+    period: '2014 → 2017',
   },
   {
     school: 'Universitat Politècnica de Catalunya',
@@ -239,7 +239,7 @@ export const education: Study[] = [
       es: 'Máster en Mobile Business y Diseño de Apps',
       ca: 'Màster en Mobile Business i Disseny d’Apps',
     },
-    period: '2012 — 2013',
+    period: '2012 → 2013',
   },
   {
     school: 'Universidad del Norte',
@@ -248,7 +248,7 @@ export const education: Study[] = [
       es: 'Grado en Ingeniería Electrónica y de Telecomunicaciones',
       ca: 'Grau en Enginyeria Electrònica i de Telecomunicacions',
     },
-    period: '2003 — 2009',
+    period: '2003 → 2009',
   },
 ]
 

@@ -17,15 +17,15 @@ function fmt(ym: string) {
 }
 
 function period(r: Role) {
-  return `${fmt(r.start)} — ${r.end ? fmt(r.end) : t.value.resume.present}`
+  return `${fmt(r.start)} → ${r.end ? fmt(r.end) : t.value.resume.present}`
 }
 
-/** Year span for the left column, e.g. "2021 — 2024" or "2026 —". */
+/** Year span for the left column, e.g. "2021 → 2024" or "2026 →". */
 function span(roles: Role[]) {
   const start = roles[roles.length - 1].start.slice(0, 4)
   const endRole = roles[0].end
   const end = endRole ? endRole.slice(0, 4) : ''
-  return start === end ? start : `${start} — ${end}`
+  return start === end ? start : `${start} → ${end}`
 }
 </script>
 
@@ -68,7 +68,7 @@ function span(roles: Role[]) {
       <ol class="block__list" role="list">
         <li v-for="study in education" :key="study.degree.en" class="row">
           <p class="row__when t-label">
-            {{ study.period }}<template v-if="study.ongoing"> — {{ t.resume.present }}</template>
+            {{ study.period }}<template v-if="study.ongoing"> → {{ t.resume.present }}</template>
           </p>
           <div class="row__body">
             <h3 class="row__title t-h3">{{ study.degree[locale] }}</h3>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * Living style guide for the DiAfanador design system.
- * English only, not linked from the nav — open /#/system.
+ * English only, not linked from the nav; open /#/system.
  */
 import PageHero from '@/components/ui/PageHero.vue'
 import SectionLabel from '@/components/ui/SectionLabel.vue'
@@ -20,13 +20,13 @@ const colors = [
 ]
 
 const type = [
-  { token: '--fs-display', cls: 't-display', sample: 'Display' },
-  { token: '--fs-h1', cls: 't-h1', sample: 'Heading 1' },
-  { token: '--fs-h2', cls: 't-h2', sample: 'Heading 2' },
-  { token: '--fs-h3', cls: 't-h3', sample: 'Heading 3' },
-  { token: '--fs-lead', cls: 't-lead', sample: 'Lead paragraph for introductions.' },
-  { token: '--fs-body', cls: '', sample: 'Body text, 16px Inter at 1.6 line height.' },
-  { token: '--fs-label', cls: 't-label', sample: 'Mono label' },
+  { token: 'fs-display', cls: 't-display', sample: 'Display' },
+  { token: 'fs-h1', cls: 't-h1', sample: 'Heading 1' },
+  { token: 'fs-h2', cls: 't-h2', sample: 'Heading 2' },
+  { token: 'fs-h3', cls: 't-h3', sample: 'Heading 3' },
+  { token: 'fs-lead', cls: 't-lead', sample: 'Lead paragraph for introductions.' },
+  { token: 'fs-body', cls: '', sample: 'Body text, 16px Inter at 1.6 line height.' },
+  { token: 'fs-label', cls: 't-label', sample: 'Mono label' },
 ]
 
 const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
@@ -45,7 +45,7 @@ const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
       <div class="swatches">
         <div v-for="c in colors" :key="c.name" class="swatch">
           <div class="swatch__chip" :style="{ background: c.hex }" />
-          <p class="swatch__name">--{{ c.name }}</p>
+          <p class="swatch__name">{{ c.name }}</p>
           <p class="t-label t-muted">{{ c.hex }}</p>
           <p class="swatch__use t-muted">{{ c.use }}</p>
         </div>
@@ -68,7 +68,7 @@ const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
       <h2 class="block__title t-label">Spacing · 4px base</h2>
       <div class="space">
         <div v-for="(px, i) in space" :key="px" class="space__row">
-          <span class="t-label t-muted">--s-{{ i + 1 }}</span>
+          <span class="t-label t-muted">s-{{ i + 1 }}</span>
           <span class="space__bar" :style="{ width: px + 'px' }" />
           <span class="t-label t-muted">{{ px }}</span>
         </div>

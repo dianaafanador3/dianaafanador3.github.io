@@ -9,11 +9,11 @@ export const localeNames: Record<Locale, string> = {
 
 const en = {
   meta: {
-    description: 'DiAfanador — Developer portfolio',
+    description: 'DiAfanador · Developer portfolio',
   },
   nav: {
     main: 'Main navigation',
-    home: 'DiAfanador — Home',
+    home: 'DiAfanador · Home',
     portfolio: 'Portfolio',
     about: 'About',
     writing: 'Writing',
@@ -27,7 +27,7 @@ const en = {
     line1: 'Mobile apps, SDKs',
     line2: 'and generative',
     accent: 'sketches',
-    lead: 'Diana Afanador — Lead Mobile Engineer in Barcelona and AI tools enthusiast. Ten years building for Apple platforms, cross-platform apps and developer SDKs.',
+    lead: 'Diana Afanador, Lead Mobile Engineer in Barcelona and AI tools enthusiast. Ten years building for Apple platforms, cross-platform apps and developer SDKs.',
     featuredEyebrow: 'Featured',
     featuredMeta: 'Generative sketch · p5.js',
     careerEyebrow: 'Career',
@@ -36,7 +36,7 @@ const en = {
     workLabel: 'Selected work',
     workTitle: 'Things I make for fun',
     aboutLabel: 'About',
-    aboutStatement: 'A product-driven engineer crafting mobile experiences across finance, technology and gaming — and an AI tools enthusiast.',
+    aboutStatement: 'A product-driven engineer crafting mobile experiences across finance, technology and gaming, and an AI tools enthusiast.',
     aboutCta: 'More about me',
   },
   about: {
@@ -51,7 +51,7 @@ const en = {
     beyondLabel: 'BEYOND',
     beyond: ['AI tools enthusiast', 'Artificial Intelligence · MSc', 'Tech leadership · Mentoring', 'Unity3D · Games', 'p5.js · Creative coding'],
     languagesLabel: 'LANGUAGES',
-    languages: ['Spanish — native', 'English — full professional', 'Catalan — elementary', 'German — elementary'],
+    languages: ['Spanish: native', 'English: full professional', 'Catalan: elementary', 'German: elementary'],
   },
   writing: {
     designator: '02 · Writing',
@@ -63,7 +63,7 @@ const en = {
   resume: {
     designator: '03 · Resume',
     title: 'Resume',
-    lead: 'Ten years across finance, technology and gaming — from SDKs to CarPlay.',
+    lead: 'Ten years across finance, technology and gaming, from SDKs to CarPlay.',
     experience: 'EXPERIENCE',
     education: 'EDUCATION',
     honors: 'HONOURS & AWARDS',
@@ -81,11 +81,11 @@ export type Messages = typeof en
 
 const es: Messages = {
   meta: {
-    description: 'DiAfanador — Portfolio de desarrollo',
+    description: 'DiAfanador · Portfolio de desarrollo',
   },
   nav: {
     main: 'Navegación principal',
-    home: 'DiAfanador — Inicio',
+    home: 'DiAfanador · Inicio',
     portfolio: 'Portfolio',
     about: 'Sobre mí',
     writing: 'Escritos',
@@ -99,7 +99,7 @@ const es: Messages = {
     line1: 'Apps móviles, SDK',
     line2: 'y bocetos',
     accent: 'generativos',
-    lead: 'Diana Afanador — Lead Mobile Engineer en Barcelona y entusiasta de las herramientas de IA. Diez años desarrollando para las plataformas de Apple, apps multiplataforma y SDK para desarrolladores.',
+    lead: 'Diana Afanador, Lead Mobile Engineer en Barcelona y entusiasta de las herramientas de IA. Diez años desarrollando para las plataformas de Apple, apps multiplataforma y SDK para desarrolladores.',
     featuredEyebrow: 'Destacado',
     featuredMeta: 'Boceto generativo · p5.js',
     careerEyebrow: 'Trayectoria',
@@ -108,7 +108,7 @@ const es: Messages = {
     workLabel: 'Proyectos',
     workTitle: 'Cosas que hago por diversión',
     aboutLabel: 'Sobre mí',
-    aboutStatement: 'Una ingeniera orientada a producto que crea experiencias móviles en finanzas, tecnología y videojuegos — y entusiasta de las herramientas de IA.',
+    aboutStatement: 'Una ingeniera orientada a producto que crea experiencias móviles en finanzas, tecnología y videojuegos, y entusiasta de las herramientas de IA.',
     aboutCta: 'Más sobre mí',
   },
   about: {
@@ -123,7 +123,7 @@ const es: Messages = {
     beyondLabel: 'MÁS ALLÁ',
     beyond: ['Entusiasta de las herramientas de IA', 'Inteligencia Artificial · Máster', 'Liderazgo técnico · Mentoría', 'Unity3D · Videojuegos', 'p5.js · Código creativo'],
     languagesLabel: 'IDIOMAS',
-    languages: ['Español — nativo', 'Inglés — profesional completo', 'Catalán — elemental', 'Alemán — elemental'],
+    languages: ['Español: nativo', 'Inglés: profesional completo', 'Catalán: elemental', 'Alemán: elemental'],
   },
   writing: {
     designator: '02 · Escritos',
@@ -135,7 +135,7 @@ const es: Messages = {
   resume: {
     designator: '03 · Currículum',
     title: 'Currículum',
-    lead: 'Diez años en finanzas, tecnología y videojuegos — de los SDK a CarPlay.',
+    lead: 'Diez años en finanzas, tecnología y videojuegos, de los SDK a CarPlay.',
     experience: 'EXPERIENCIA',
     education: 'FORMACIÓN',
     honors: 'PREMIOS Y RECONOCIMIENTOS',
@@ -151,11 +151,11 @@ const es: Messages = {
 
 const ca: Messages = {
   meta: {
-    description: 'DiAfanador — Portfoli de desenvolupament',
+    description: 'DiAfanador · Portfoli de desenvolupament',
   },
   nav: {
     main: 'Navegació principal',
-    home: 'DiAfanador — Inici',
+    home: 'DiAfanador · Inici',
     portfolio: 'Portfoli',
     about: 'Sobre mi',
     writing: 'Escrits',
@@ -169,7 +169,7 @@ const ca: Messages = {
     line1: 'Apps mòbils, SDK',
     line2: 'i esbossos',
     accent: 'generatius',
-    lead: 'Diana Afanador — Lead Mobile Engineer a Barcelona i entusiasta de les eines d’IA. Deu anys desenvolupant per a les plataformes d’Apple, apps multiplataforma i SDK per a desenvolupadors.',
+    lead: 'Diana Afanador, Lead Mobile Engineer a Barcelona i entusiasta de les eines d’IA. Deu anys desenvolupant per a les plataformes d’Apple, apps multiplataforma i SDK per a desenvolupadors.',
     featuredEyebrow: 'Destacat',
     featuredMeta: 'Esbós generatiu · p5.js',
     careerEyebrow: 'Trajectòria',
@@ -178,7 +178,7 @@ const ca: Messages = {
     workLabel: 'Projectes',
     workTitle: 'Coses que faig per diversió',
     aboutLabel: 'Sobre mi',
-    aboutStatement: 'Una enginyera orientada a producte que crea experiències mòbils en finances, tecnologia i videojocs — i entusiasta de les eines d’IA.',
+    aboutStatement: 'Una enginyera orientada a producte que crea experiències mòbils en finances, tecnologia i videojocs, i entusiasta de les eines d’IA.',
     aboutCta: 'Més sobre mi',
   },
   about: {
@@ -193,7 +193,7 @@ const ca: Messages = {
     beyondLabel: 'MÉS ENLLÀ',
     beyond: ['Entusiasta de les eines d’IA', 'Intel·ligència Artificial · Màster', 'Lideratge tècnic · Mentoria', 'Unity3D · Videojocs', 'p5.js · Codi creatiu'],
     languagesLabel: 'IDIOMES',
-    languages: ['Castellà — natiu', 'Anglès — professional complet', 'Català — elemental', 'Alemany — elemental'],
+    languages: ['Castellà: natiu', 'Anglès: professional complet', 'Català: elemental', 'Alemany: elemental'],
   },
   writing: {
     designator: '02 · Escrits',
@@ -205,7 +205,7 @@ const ca: Messages = {
   resume: {
     designator: '03 · Currículum',
     title: 'Currículum',
-    lead: 'Deu anys en finances, tecnologia i videojocs — dels SDK a CarPlay.',
+    lead: 'Deu anys en finances, tecnologia i videojocs, dels SDK a CarPlay.',
     experience: 'EXPERIÈNCIA',
     education: 'FORMACIÓ',
     honors: 'PREMIS I RECONEIXEMENTS',
