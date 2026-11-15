@@ -17,7 +17,7 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
         <div class="entry-list">
           <div class="entry">
             <p class="entry-period mono">2022 — Present</p>
-            <h3 class="entry-title">Designer &amp; Developer</h3>
+            <h3 class="entry-title">Developer</h3>
             <p class="entry-org">DiAfanador — Barcelona</p>
           </div>
         </div>

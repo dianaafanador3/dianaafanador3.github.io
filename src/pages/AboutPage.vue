@@ -13,7 +13,7 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
 
     <article class="about-content">
       <p class="bio-text">
-        Diana Afanador is a designer and developer exploring the intersection
+        Diana Afanador is a developer exploring the intersection
         of code and visual form. Based in Barcelona, she builds interactive
         experiences where generative systems meet intentional design.
       </p>

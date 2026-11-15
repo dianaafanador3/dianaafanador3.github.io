@@ -15,7 +15,7 @@ import { projects } from '@/data/projects'
 
       <p class="header-designator mono">// U01 — PORTFOLIO</p>
       <h1 class="main-title">DiAfanador</h1>
-      <p class="subtitle">Designer &amp; Developer</p>
+      <p class="subtitle">Developer</p>
     </header>
 
     <ProjectCarousel :projects="projects" />
