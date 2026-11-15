@@ -1,8 +1,10 @@
+import type { Locale } from '@/i18n'
+
 export interface Project {
   id: number
   slug: string
   title: string
-  description: string
+  description: Record<Locale, string>
   thumbnail: string
   href: string
   tech: string[]
@@ -21,7 +23,7 @@ export interface BlogPost {
 }
 
 export interface NavItem {
-  label: string
+  key: 'portfolio' | 'about' | 'writing' | 'resume'
   to: string
   /** Section accent color CSS variable */
   color: string

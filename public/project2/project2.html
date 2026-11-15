@@ -21,7 +21,7 @@
     <body>
         <div class="project-container">
             <header class="project-header">
-                <a href="/" class="back-link">← Back to Portfolio</a>
+                <a href="/" class="back-link" data-i18n="back">← Back to Portfolio</a>
                 <h1 class="project-title">Motlle</h1>
             </header>
 
@@ -30,7 +30,7 @@
                     <div class="sketch-container" id="sketch-container">
                         <!-- p5.js sketch will be rendered here -->
                     </div>
-                    <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle Fullscreen">
+                    <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle Fullscreen" data-i18n-title="fullscreen">
                         <svg
                             width="24"
                             height="24"
@@ -48,7 +48,7 @@
 
                 <div class="project-info">
                     <h2>Motlle</h2>
-                    <p>
+                    <p data-i18n="desc">
                         El motlle és una empremta silenciosa, una presència que dóna forma al que
                         encara no existeix. Com una ombra amb memòria, espera pacientment que la
                         matèria l’ompli per revelar allò que ha estat imaginat. En el seu interior,
@@ -60,6 +60,45 @@
                 </div>
             </main>
         </div>
+
+        <script>
+            // Matches the language chosen on the main site (same localStorage key).
+            ;(function () {
+                var t = {
+                    en: {
+                        back: '← Back to Portfolio',
+                        fullscreen: 'Toggle fullscreen',
+                        desc: 'The mould is a silent imprint, a presence that gives shape to what does not yet exist. Like a shadow with memory, it waits patiently for matter to fill it and reveal what has been imagined. Inside, emptiness is creative: where there is nothing, possibility is born. When it opens, the mould releases a figure that seems to emerge from a solidified dream — an idea made body.',
+                    },
+                    es: {
+                        back: '← Volver al portfolio',
+                        fullscreen: 'Pantalla completa',
+                        desc: 'El molde es una huella silenciosa, una presencia que da forma a lo que aún no existe. Como una sombra con memoria, espera pacientemente a que la materia lo llene para revelar aquello que ha sido imaginado. En su interior, el vacío es creador: allí donde no hay nada, nace la posibilidad. Cuando se abre, el molde libera una figura que parece salir de un sueño solidificado, una idea hecha cuerpo.',
+                    },
+                    ca: {
+                        back: '← Tornar al portfoli',
+                        fullscreen: 'Pantalla completa',
+                        desc: null, // original Catalan text stays as written in the HTML
+                    },
+                }
+                var l
+                try { l = localStorage.getItem('locale') } catch (e) {}
+                if (!t[l]) {
+                    var langs = navigator.languages || [navigator.language]
+                    for (var i = 0; i < langs.length && !t[l]; i++) l = (langs[i] || '').slice(0, 2).toLowerCase()
+                    if (!t[l]) l = 'en'
+                }
+                document.documentElement.lang = l
+                document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                    var v = t[l][el.getAttribute('data-i18n')]
+                    if (v) el.textContent = v
+                })
+                document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+                    var v = t[l][el.getAttribute('data-i18n-title')]
+                    if (v) el.title = v
+                })
+            })()
+        </script>
 
         <!-- p5.js sketch script -->
         <script src="sketch.js"></script>

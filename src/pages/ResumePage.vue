@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import CircuitLines from '@/components/ui/CircuitLines.vue'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -7,36 +10,36 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
     <header class="page-header">
       <CircuitLines position="top-left"  color="var(--trace-lime)" :size="44" />
       <CircuitLines position="top-right" color="var(--trace-lime)" :size="44" />
-      <p class="page-designator mono">// U04 — RESUME</p>
-      <h1 class="page-title">Resume</h1>
+      <p class="page-designator mono">{{ t.resume.designator }}</p>
+      <h1 class="page-title">{{ t.resume.title }}</h1>
     </header>
 
     <div class="resume-content">
       <section class="resume-section">
-        <p class="section-label mono">// EXPERIENCE</p>
+        <p class="section-label mono">{{ t.resume.experience }}</p>
         <div class="entry-list">
           <div class="entry">
-            <p class="entry-period mono">2022 — Present</p>
-            <h3 class="entry-title">Developer</h3>
+            <p class="entry-period mono">{{ t.resume.period }}</p>
+            <h3 class="entry-title">{{ t.resume.role }}</h3>
             <p class="entry-org">DiAfanador — Barcelona</p>
           </div>
         </div>
       </section>
 
       <section class="resume-section">
-        <p class="section-label mono">// EDUCATION</p>
+        <p class="section-label mono">{{ t.resume.education }}</p>
         <div class="entry-list">
           <div class="entry">
-            <p class="entry-period mono">Add your education</p>
-            <h3 class="entry-title">Your Degree</h3>
-            <p class="entry-org">Your Institution</p>
+            <p class="entry-period mono">{{ t.resume.eduPeriod }}</p>
+            <h3 class="entry-title">{{ t.resume.eduDegree }}</h3>
+            <p class="entry-org">{{ t.resume.eduSchool }}</p>
           </div>
         </div>
       </section>
 
       <div class="download-row">
         <a href="#" class="download-btn mono">
-          <span>↓ Download PDF</span>
+          <span>{{ t.resume.download }}</span>
         </a>
       </div>
     </div>

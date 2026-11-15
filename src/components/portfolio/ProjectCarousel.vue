@@ -4,6 +4,9 @@ import type { Project } from '@/types'
 import { useCarousel } from '@/composables/useCarousel'
 import ProjectCard from './ProjectCard.vue'
 import IconChevron from '@/components/ui/IconChevron.vue'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
 
 const props = defineProps<{
   projects: Project[]
@@ -22,7 +25,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     <button
       v-if="projects.length > 1"
       class="carousel-btn carousel-btn--prev"
-      aria-label="Previous project"
+      :aria-label="t.carousel.prev"
       @click="prev"
     >
       <IconChevron direction="left" />
@@ -45,21 +48,21 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     <button
       v-if="projects.length > 1"
       class="carousel-btn carousel-btn--next"
-      aria-label="Next project"
+      :aria-label="t.carousel.next"
       @click="next"
     >
       <IconChevron direction="right" />
     </button>
 
     <!-- Via-hole dots -->
-    <div v-if="projects.length > 1" class="carousel-vias" role="tablist" aria-label="Projects">
+    <div v-if="projects.length > 1" class="carousel-vias" role="tablist" :aria-label="t.carousel.projects">
       <button
         v-for="(project, i) in projects"
         :key="project.id"
         class="via"
         :class="{ 'via--active': i === currentIndex }"
         :style="i === currentIndex ? { '--via-color': project.color } : {}"
-        :aria-label="`View ${project.title}`"
+        :aria-label="t.carousel.view.replace('{title}', project.title)"
         :aria-selected="i === currentIndex"
         role="tab"
         @click="goTo(i)"

@@ -2,6 +2,9 @@
 import ProjectCarousel from '@/components/portfolio/ProjectCarousel.vue'
 import CircuitLines from '@/components/ui/CircuitLines.vue'
 import { projects } from '@/data/projects'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,9 +16,9 @@ import { projects } from '@/data/projects'
       <CircuitLines position="bottom-left"  color="var(--trace-yellow)" :size="48" />
       <CircuitLines position="bottom-right" color="var(--trace-yellow)" :size="48" />
 
-      <p class="header-designator mono">// U01 — PORTFOLIO</p>
+      <p class="header-designator mono">{{ t.home.designator }}</p>
       <h1 class="main-title">DiAfanador</h1>
-      <p class="subtitle">Developer</p>
+      <p class="subtitle">{{ t.home.subtitle }}</p>
     </header>
 
     <ProjectCarousel :projects="projects" />

@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import CircuitLines from '@/components/ui/CircuitLines.vue'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
+
+const blocks = computed(() => [
+  { label: t.value.about.mobileLabel, items: t.value.about.mobile },
+  { label: t.value.about.beyondLabel, items: t.value.about.beyond },
+  { label: t.value.about.languagesLabel, items: t.value.about.languages },
+])
 </script>
 
 <template>
@@ -7,42 +17,29 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
     <header class="page-header">
       <CircuitLines position="top-left"  color="var(--trace-cyan)" :size="44" />
       <CircuitLines position="top-right" color="var(--trace-cyan)" :size="44" />
-      <p class="page-designator mono">// U02 — ABOUT</p>
-      <h1 class="page-title">About</h1>
+      <p class="page-designator mono">{{ t.about.designator }}</p>
+      <h1 class="page-title">{{ t.about.title }}</h1>
     </header>
 
     <article class="about-content">
-      <p class="bio-text">
-        Diana Afanador is a developer exploring the intersection
-        of code and visual form. Based in Barcelona, she builds interactive
-        experiences where generative systems meet intentional design.
-      </p>
-      <p class="bio-text">
-        Her work lives at the boundary between the technical and the poetic —
-        from kaleidoscopic p5.js sketches to typographic systems and
-        experimental interfaces.
-      </p>
+      <p class="bio-text">{{ t.about.bio1 }}</p>
+      <p class="bio-text">{{ t.about.bio2 }}</p>
 
       <div class="skills-grid">
-        <div class="skill-block">
-          <p class="skill-label mono">// DESIGN</p>
+        <div v-for="block in blocks" :key="block.label" class="skill-block">
+          <p class="skill-label mono">{{ block.label }}</p>
           <ul class="skill-list">
-            <li>Visual Design</li>
-            <li>Typography</li>
-            <li>Motion</li>
-            <li>Interaction</li>
-          </ul>
-        </div>
-        <div class="skill-block">
-          <p class="skill-label mono">// CODE</p>
-          <ul class="skill-list">
-            <li>JavaScript / TS</li>
-            <li>Vue · React</li>
-            <li>p5.js / Canvas</li>
-            <li>CSS Systems</li>
+            <li v-for="item in block.items" :key="item">{{ item }}</li>
           </ul>
         </div>
       </div>
+
+      <a
+        class="linkedin-link mono"
+        href="https://www.linkedin.com/in/diafanador/"
+        target="_blank"
+        rel="noopener"
+      >LinkedIn ↗</a>
     </article>
   </main>
 </template>
@@ -95,7 +92,7 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
 
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 16px;
   margin-top: 8px;
 }
@@ -135,5 +132,19 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
 
 @media (max-width: 480px) {
   .skills-grid { grid-template-columns: 1fr; }
+}
+
+.linkedin-link {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--trace-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.linkedin-link:hover {
+  border-bottom-color: var(--trace-cyan);
 }
 </style>

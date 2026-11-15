@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import CircuitLines from '@/components/ui/CircuitLines.vue'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -7,14 +10,14 @@ import CircuitLines from '@/components/ui/CircuitLines.vue'
     <header class="page-header">
       <CircuitLines position="top-left"  color="var(--trace-magenta)" :size="44" />
       <CircuitLines position="top-right" color="var(--trace-magenta)" :size="44" />
-      <p class="page-designator mono">// U03 — WRITING</p>
-      <h1 class="page-title">Writing</h1>
+      <p class="page-designator mono">{{ t.writing.designator }}</p>
+      <h1 class="page-title">{{ t.writing.title }}</h1>
     </header>
 
     <div class="empty-state">
       <div class="empty-board">
-        <p class="empty-label mono">// NO SIGNAL</p>
-        <p class="empty-text">Posts coming soon.</p>
+        <p class="empty-label mono">{{ t.writing.noSignal }}</p>
+        <p class="empty-text">{{ t.writing.soon }}</p>
         <div class="empty-trace" aria-hidden="true" />
       </div>
     </div>

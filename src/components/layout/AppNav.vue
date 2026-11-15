@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
 import type { NavItem } from '@/types'
+import { useI18n, locales, localeNames } from '@/i18n'
 
 const route = useRoute()
+const { t, locale, setLocale } = useI18n()
 
 const navItems: NavItem[] = [
-  { label: 'Portfolio', to: '/',        color: 'var(--trace-yellow)' },
-  { label: 'About',     to: '/about',   color: 'var(--trace-cyan)' },
-  { label: 'Writing',   to: '/writing', color: 'var(--trace-magenta)' },
-  { label: 'Resume',    to: '/resume',  color: 'var(--trace-lime)' },
+  { key: 'portfolio', to: '/',        color: 'var(--trace-yellow)' },
+  { key: 'about',     to: '/about',   color: 'var(--trace-cyan)' },
+  { key: 'writing',   to: '/writing', color: 'var(--trace-magenta)' },
+  { key: 'resume',    to: '/resume',  color: 'var(--trace-lime)' },
 ]
 
 function isActive(to: string) {
@@ -17,9 +19,9 @@ function isActive(to: string) {
 </script>
 
 <template>
-  <nav class="app-nav" aria-label="Main navigation">
+  <nav class="app-nav" :aria-label="t.nav.main">
     <!-- Logo / brand -->
-    <RouterLink to="/" class="nav-logo" aria-label="DiAfanador — Home">
+    <RouterLink to="/" class="nav-logo" :aria-label="t.nav.home">
       <span class="nav-logo__chip">◈</span>
       <span class="nav-logo__text">DiAfanador</span>
     </RouterLink>
@@ -34,10 +36,27 @@ function isActive(to: string) {
           :style="isActive(item.to) ? { '--link-color': item.color } : {}"
           :aria-current="isActive(item.to) ? 'page' : undefined"
         >
-          {{ item.label }}
+          {{ t.nav[item.key] }}
         </RouterLink>
       </li>
     </ul>
+
+    <!-- Language selector -->
+    <div class="lang-switch" role="group" :aria-label="t.nav.language">
+      <button
+        v-for="l in locales"
+        :key="l"
+        type="button"
+        class="lang-btn mono"
+        :class="{ 'lang-btn--active': l === locale }"
+        :aria-pressed="l === locale"
+        :lang="l"
+        :title="localeNames[l]"
+        @click="setLocale(l)"
+      >
+        {{ l.toUpperCase() }}
+      </button>
+    </div>
   </nav>
 </template>
 
@@ -126,6 +145,51 @@ function isActive(to: string) {
 }
 .nav-link--active::after {
   width: 100%;
+}
+
+/* Language selector */
+.lang-switch {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.lang-btn {
+  background: transparent;
+  border: 0;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 6px 9px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.lang-btn + .lang-btn {
+  border-left: 1px solid var(--border);
+}
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+.lang-btn--active {
+  color: var(--trace-orange);
+  background: rgba(255, 128, 0, 0.1);
+}
+.lang-btn:focus-visible {
+  outline: 1px solid var(--trace-orange);
+  outline-offset: -1px;
+}
+
+/* Tablet: wrap links below logo + selector */
+@media (max-width: 760px) {
+  .app-nav {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Mobile: stack */
