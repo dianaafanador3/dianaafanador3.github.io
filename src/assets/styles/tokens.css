@@ -1,0 +1,91 @@
+/* ─────────────────────────────────────────────────────────────────
+   DiAfanador design tokens
+   Editorial "paper & ink" system: warm paper surfaces, near-black ink,
+   one orange accent. Documented live at /#/system.
+
+   Breakpoints (media queries can't read custom properties):
+     --bp-md: 760px   tablet  → 2-column layouts start
+     --bp-lg: 1100px  desktop → full nav, wide grids
+   ───────────────────────────────────────────────────────────────── */
+:root {
+  /* Colour — surfaces */
+  --paper: #fbfaf7;
+  --panel: #f1eee8;
+  --ink: #141414;
+  --ink-2: #2d2b27;
+
+  /* Colour — text & lines */
+  --text: var(--ink);
+  --muted: #6b6862;
+  --rule: #dedad2;
+
+  /* Colour — accent (DiAfanador orange) */
+  --accent: #e8590c;        /* large text, marks, fills */
+  --accent-strong: #b8460a; /* small text on paper (AA 4.5:1) */
+  --on-accent: #fff;
+
+  /* Colour — on ink surfaces */
+  --on-ink: #fbfaf7;
+  --on-ink-muted: #a8a49c;
+  --rule-ink: #3a3833;
+
+  /* Type families */
+  --font-display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+
+  /* Type scale — fluid between 360px and 1440px viewports */
+  --fs-display: clamp(2.6rem, 1.5rem + 5.4vw, 6.25rem);
+  --fs-h1: clamp(2.25rem, 1.45rem + 3.8vw, 4.75rem);
+  --fs-h2: clamp(1.75rem, 1.25rem + 2.2vw, 3.25rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem);
+  --fs-lead: clamp(1.1rem, 0.98rem + 0.6vw, 1.5rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.72rem;
+
+  --lh-tight: 0.98;
+  --lh-snug: 1.2;
+  --lh-body: 1.6;
+  --tracking-display: -0.045em;
+  --tracking-label: 0.08em;
+
+  /* Spacing — 4px base */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* Layout */
+  --gutter: clamp(20px, 6.5vw, 112px);
+  --max-width: 1440px;
+  --measure: 62ch;
+  --section-space: clamp(64px, 9vw, 128px);
+  --nav-height: 64px;
+
+  /* Shape */
+  --radius: 6px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.35s;
+  --dur-slow: 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0s;
+    --dur: 0s;
+    --dur-slow: 0s;
+  }
+}

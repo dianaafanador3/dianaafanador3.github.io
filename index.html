@@ -1,91 +1,30 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
-        />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>DiAfanador - Portfolio</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1 class="main-title">DiAfanador</h1>
-                <p class="subtitle">Designer & Developer</p>
-            </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="DiAfanador · Developer portfolio" />
+    <title>DiAfanador</title>
 
-            <main>
-                <div class="carousel-container">
-                    <button
-                        class="carousel-nav carousel-prev"
-                        onclick="changeSlide(-1)"
-                        aria-label="Previous project"
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <button
-                        class="carousel-nav carousel-next"
-                        onclick="changeSlide(1)"
-                        aria-label="Next project"
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#fbfaf7" />
 
-                    <div class="carousel">
-                        <div class="carousel-item active">
-                            <a href="project1/project1.html" class="project-card">
-                                <div class="project-image-wrapper">
-                                    <img
-                                        src="project-1-sketch-only.png"
-                                        alt="Calidoscopi Project"
-                                        class="carousel-image"
-                                    />
-                                </div>
-                                <div class="project-info">
-                                    <h2 class="project-title">Calidoscopi</h2>
-                                    <p class="project-number">01</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="project2/project2.html" class="project-card">
-                                <div class="project-image-wrapper">
-                                    <img
-                                        src="project-2-sketch-only.png"
-                                        alt="Motlle Project"
-                                        class="carousel-image"
-                                    />
-                                </div>
-                                <div class="project-info">
-                                    <h2 class="project-title">Motlle</h2>
-                                    <p class="project-number">02</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="carousel-dots">
-                        <button class="dot active" onclick="currentSlide(1)" aria-label="View project 1"></button>
-                        <button class="dot" onclick="currentSlide(2)" aria-label="View project 2"></button>
-                    </div>
-                </div>
-            </main>
-        </div>
-
-        <script src="script.js"></script>
-    </body>
+    <!-- Fonts: Inter Tight (display), Inter (body), Geist Mono (labels), Instrument Serif (accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
