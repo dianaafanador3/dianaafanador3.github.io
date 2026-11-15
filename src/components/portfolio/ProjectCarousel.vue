@@ -20,6 +20,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
   <div class="carousel-wrap">
     <!-- Prev button -->
     <button
+      v-if="projects.length > 1"
       class="carousel-btn carousel-btn--prev"
       aria-label="Previous project"
       @click="prev"
@@ -42,6 +43,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
     <!-- Next button -->
     <button
+      v-if="projects.length > 1"
       class="carousel-btn carousel-btn--next"
       aria-label="Next project"
       @click="next"
@@ -50,7 +52,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     </button>
 
     <!-- Via-hole dots -->
-    <div class="carousel-vias" role="tablist" aria-label="Projects">
+    <div v-if="projects.length > 1" class="carousel-vias" role="tablist" aria-label="Projects">
       <button
         v-for="(project, i) in projects"
         :key="project.id"

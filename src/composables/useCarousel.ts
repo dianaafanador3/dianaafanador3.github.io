@@ -27,13 +27,14 @@ export function useCarousel(total: number) {
 
   function onTouchEnd(event: TouchEvent) {
     const delta = event.changedTouches[0].screenX - touchStartX
-    if (Math.abs(delta) >= MIN_SWIPE) {
+    if (total > 1 && Math.abs(delta) >= MIN_SWIPE) {
       delta > 0 ? prev() : next()
     }
   }
 
   // Keyboard
   function onKeydown(event: KeyboardEvent) {
+    if (total < 2) return
     if (event.key === 'ArrowLeft') prev()
     if (event.key === 'ArrowRight') next()
   }
