@@ -162,15 +162,6 @@ p {
   border-top: 1px solid var(--rule);
 }
 
-.visually-hidden {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
 /* ─── Page enter/leave (router transition) ─────────────────────── */
 .page-enter-active,
 .page-leave-active {

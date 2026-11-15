@@ -20,7 +20,8 @@ const featured = projects[0]
         <div class="hero__text">
           <h1 class="hero__title t-display">
             {{ t.home.line1 }}<br />
-            {{ t.home.line2 }} <span class="serif accent">{{ t.home.accent }}</span><span class="accent">.</span>
+            {{ t.home.line2 }} <span class="serif accent">{{ t.home.accent }}</span
+            ><span class="accent">.</span>
           </h1>
           <p class="hero__lead t-lead">{{ t.home.lead }}</p>
         </div>

@@ -183,7 +183,9 @@ export const experience: Job[] = [
   {
     company: 'Redbooth, Inc.',
     location: bcn,
-    roles: [{ title: { en: 'Intern', es: 'Becaria', ca: 'Becària' }, start: '2013-09', end: '2013-11' }],
+    roles: [
+      { title: { en: 'Intern', es: 'Becaria', ca: 'Becària' }, start: '2013-09', end: '2013-11' },
+    ],
     highlights: [
       {
         en: 'Supported the backend, frontend and mobile teams, reducing technical debt and building small features.',

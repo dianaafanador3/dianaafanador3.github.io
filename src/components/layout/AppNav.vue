@@ -29,7 +29,10 @@ function onKey(e: KeyboardEvent) {
   if (e.key === 'Escape') open.value = false
 }
 
-watch(() => route.fullPath, () => (open.value = false))
+watch(
+  () => route.fullPath,
+  () => (open.value = false)
+)
 watch(open, (v) => document.documentElement.classList.toggle('menu-open', v))
 
 onMounted(() => {
@@ -98,7 +101,13 @@ onUnmounted(() => {
         </nav>
         <div class="menu__foot container">
           <LanguageSwitch size="lg" />
-          <a class="menu__ext t-label" href="https://www.linkedin.com/in/diafanador/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a
+            class="menu__ext t-label"
+            href="https://www.linkedin.com/in/diafanador/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn ↗</a
+          >
         </div>
       </div>
     </Transition>

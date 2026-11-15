@@ -1,113 +1,123 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
-        />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#fbfaf7" />
-        <title>DiAfanador - Motlle</title>
-        <link rel="stylesheet" href="project-styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter+Tight:wght@700&family=Inter:wght@400;500&display=swap"
-            rel="stylesheet"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-    </head>
-    <body>
-        <div class="project-container">
-            <header class="project-header">
-                <a href="/" class="back-link" data-i18n="back">← Back to Portfolio</a>
-                <h1 class="project-title">Motlle</h1>
-            </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#fbfaf7" />
+    <title>DiAfanador - Motlle</title>
+    <link rel="stylesheet" href="project-styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter+Tight:wght@700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+  </head>
+  <body>
+    <div class="project-container">
+      <header class="project-header">
+        <a href="/" class="back-link" data-i18n="back">← Back to Portfolio</a>
+        <h1 class="project-title">Motlle</h1>
+      </header>
 
-            <main class="project-main">
-                <div class="sketch-wrapper">
-                    <div class="sketch-container" id="sketch-container">
-                        <!-- sketch canvas is rendered here -->
-                        <button id="fullscreen-btn" class="fullscreen-btn" type="button" aria-pressed="false" aria-label="Toggle fullscreen" title="Toggle Fullscreen" data-i18n-title="fullscreen">
-                            <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                            >
-                                <path
-                                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
-                                ></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="project-info">
-                    <h2>Motlle</h2>
-                    <p data-i18n="desc">
-                        El motlle és una empremta silenciosa, una presència que dóna forma al que
-                        encara no existeix. Com una ombra amb memòria, espera pacientment que la
-                        matèria l’ompli per revelar allò que ha estat imaginat. En el seu interior,
-                        el buit és creador: allà on no hi ha res, neix la possibilitat. Quan s’obre,
-                        el motlle allibera una figura que sembla sortir d’un somni solidificat, una
-                        idea feta cos.
-                    </p>
-                    <h3 data-i18n="tag">Generative art</h3>
-                </div>
-            </main>
+      <main class="project-main">
+        <div class="sketch-wrapper">
+          <div class="sketch-container" id="sketch-container">
+            <!-- sketch canvas is rendered here -->
+            <button
+              id="fullscreen-btn"
+              class="fullscreen-btn"
+              type="button"
+              aria-pressed="false"
+              aria-label="Toggle fullscreen"
+              title="Toggle Fullscreen"
+              data-i18n-title="fullscreen"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <script>
-            // Matches the language chosen on the main site (same localStorage key).
-            ;(function () {
-                var t = {
-                    en: {
-                        back: '← Back to Portfolio',
-                        tag: 'Generative art',
-                        fullscreen: 'Toggle fullscreen',
-                        desc: 'The mould is a silent imprint, a presence that gives shape to what does not yet exist. Like a shadow with memory, it waits patiently for matter to fill it and reveal what has been imagined. Inside, emptiness is creative: where there is nothing, possibility is born. When it opens, the mould releases a figure that seems to emerge from a solidified dream, an idea made body.',
-                    },
-                    es: {
-                        back: '← Volver al portfolio',
-                        tag: 'Arte generativo',
-                        fullscreen: 'Pantalla completa',
-                        desc: 'El molde es una huella silenciosa, una presencia que da forma a lo que aún no existe. Como una sombra con memoria, espera pacientemente a que la materia lo llene para revelar aquello que ha sido imaginado. En su interior, el vacío es creador: allí donde no hay nada, nace la posibilidad. Cuando se abre, el molde libera una figura que parece salir de un sueño solidificado, una idea hecha cuerpo.',
-                    },
-                    ca: {
-                        back: '← Tornar al portfoli',
-                        tag: 'Art generatiu',
-                        fullscreen: 'Pantalla completa',
-                        desc: null, // original Catalan text stays as written in the HTML
-                    },
-                }
-                var l
-                try { l = localStorage.getItem('locale') } catch (e) {}
-                if (!t[l]) {
-                    var langs = navigator.languages || [navigator.language]
-                    for (var i = 0; i < langs.length && !t[l]; i++) l = (langs[i] || '').slice(0, 2).toLowerCase()
-                    if (!t[l]) l = 'en'
-                }
-                document.documentElement.lang = l
-                document.querySelectorAll('[data-i18n]').forEach(function (el) {
-                    var v = t[l][el.getAttribute('data-i18n')]
-                    if (v) el.textContent = v
-                })
-                document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
-                    var v = t[l][el.getAttribute('data-i18n-title')]
-                    if (v) el.title = v
-                })
-            })()
-        </script>
+        <div class="project-info">
+          <h2>Motlle</h2>
+          <p data-i18n="desc">
+            El motlle és una empremta silenciosa, una presència que dóna forma al que encara no
+            existeix. Com una ombra amb memòria, espera pacientment que la matèria l’ompli per
+            revelar allò que ha estat imaginat. En el seu interior, el buit és creador: allà on no
+            hi ha res, neix la possibilitat. Quan s’obre, el motlle allibera una figura que sembla
+            sortir d’un somni solidificat, una idea feta cos.
+          </p>
+          <h3 data-i18n="tag">Generative art</h3>
+        </div>
+      </main>
+    </div>
 
-        <!-- sketch scripts -->
-        <script src="sketch.js"></script>
-        <script src="mold.js"></script>
-    </body>
+    <script>
+      // Matches the language chosen on the main site (same localStorage key).
+      ;(function () {
+        var t = {
+          en: {
+            back: '← Back to Portfolio',
+            tag: 'Generative art',
+            fullscreen: 'Toggle fullscreen',
+            desc: 'The mould is a silent imprint, a presence that gives shape to what does not yet exist. Like a shadow with memory, it waits patiently for matter to fill it and reveal what has been imagined. Inside, emptiness is creative: where there is nothing, possibility is born. When it opens, the mould releases a figure that seems to emerge from a solidified dream, an idea made body.',
+          },
+          es: {
+            back: '← Volver al portfolio',
+            tag: 'Arte generativo',
+            fullscreen: 'Pantalla completa',
+            desc: 'El molde es una huella silenciosa, una presencia que da forma a lo que aún no existe. Como una sombra con memoria, espera pacientemente a que la materia lo llene para revelar aquello que ha sido imaginado. En su interior, el vacío es creador: allí donde no hay nada, nace la posibilidad. Cuando se abre, el molde libera una figura que parece salir de un sueño solidificado, una idea hecha cuerpo.',
+          },
+          ca: {
+            back: '← Tornar al portfoli',
+            tag: 'Art generatiu',
+            fullscreen: 'Pantalla completa',
+            desc: null, // original Catalan text stays as written in the HTML
+          },
+        }
+        var l
+        try {
+          l = localStorage.getItem('locale')
+        } catch (e) {}
+        if (!t[l]) {
+          var langs = navigator.languages || [navigator.language]
+          for (var i = 0; i < langs.length && !t[l]; i++)
+            l = (langs[i] || '').slice(0, 2).toLowerCase()
+          if (!t[l]) l = 'en'
+        }
+        document.documentElement.lang = l
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var v = t[l][el.getAttribute('data-i18n')]
+          if (v) el.textContent = v
+        })
+        document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+          var v = t[l][el.getAttribute('data-i18n-title')]
+          if (v) el.title = v
+        })
+      })()
+    </script>
+
+    <!-- sketch scripts -->
+    <script src="sketch.js"></script>
+    <script src="mold.js"></script>
+  </body>
 </html>

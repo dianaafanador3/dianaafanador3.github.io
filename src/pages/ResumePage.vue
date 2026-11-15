@@ -8,7 +8,7 @@ import PillButton from '@/components/ui/PillButton.vue'
 const { t, locale } = useI18n()
 
 const monthFmt = computed(
-  () => new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' }),
+  () => new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' })
 )
 
 function fmt(ym: string) {
@@ -33,7 +33,9 @@ function span(roles: Role[]) {
   <main>
     <PageHero :label="t.resume.designator" :title="t.resume.title" :lead="t.resume.lead">
       <div class="hero-cta">
-        <PillButton href="https://www.linkedin.com/in/diafanador/" arrow>{{ t.resume.fullProfile }}</PillButton>
+        <PillButton href="https://www.linkedin.com/in/diafanador/" arrow>{{
+          t.resume.fullProfile
+        }}</PillButton>
       </div>
     </PageHero>
 

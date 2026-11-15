@@ -20,7 +20,7 @@
   --rule: #dedad2;
 
   /* Colour — accent (DiAfanador orange) */
-  --accent: #e8590c;        /* large text, marks, fills */
+  --accent: #e8590c; /* large text, marks, fills */
   --accent-strong: #b8460a; /* small text on paper (AA 4.5:1) */
   --on-accent: #fff;
 
