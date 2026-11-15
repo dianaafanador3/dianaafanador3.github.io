@@ -16,11 +16,14 @@ const { locale } = useI18n()
         class="project__img"
         loading="lazy"
       />
-      <span v-if="project.tags?.length" class="project__tag t-label">{{ project.tags.map((tag) => tag[locale]).join(' · ') }}</span>
+      <span v-if="project.tags?.length" class="project__tag t-label">{{
+        project.tags.map((tag) => tag[locale]).join(' · ')
+      }}</span>
     </div>
     <div class="project__body">
       <p class="project__meta t-label">
-        <span>{{ project.number }}</span><span>{{ project.year }}</span>
+        <span>{{ project.number }}</span
+        ><span>{{ project.year }}</span>
       </p>
       <h3 class="project__title t-h2">
         {{ project.title }}<span class="project__arrow" aria-hidden="true">→</span>

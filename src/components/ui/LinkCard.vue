@@ -12,15 +12,12 @@ defineProps<{
 </script>
 
 <template>
-  <component
-    :is="to ? RouterLink : 'a'"
-    :to="to"
-    :href="href"
-    class="link-card"
-  >
+  <component :is="to ? RouterLink : 'a'" :to="to" :href="href" class="link-card">
     <span class="link-card__eyebrow t-label">{{ eyebrow }}</span>
     <span class="link-card__title">{{ title }}</span>
-    <span class="link-card__meta">{{ meta }} <span class="link-card__arrow" aria-hidden="true">→</span></span>
+    <span class="link-card__meta"
+      >{{ meta }} <span class="link-card__arrow" aria-hidden="true">→</span></span
+    >
   </component>
 </template>
 

@@ -60,7 +60,12 @@ const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
       </p>
       <div v-for="row in type" :key="row.token" class="type-row">
         <p class="t-label t-muted">{{ row.token }}</p>
-        <p :class="row.cls">{{ row.sample }}<span v-if="row.cls.startsWith('t-d') || row.cls.startsWith('t-h')" class="accent">.</span></p>
+        <p :class="row.cls">
+          {{ row.sample
+          }}<span v-if="row.cls.startsWith('t-d') || row.cls.startsWith('t-h')" class="accent"
+            >.</span
+          >
+        </p>
       </div>
     </section>
 
@@ -115,7 +120,10 @@ const space = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128]
     <section class="section surface-ink">
       <div class="container">
         <SectionLabel>Surface · ink</SectionLabel>
-        <p class="t-h2 ink-demo">Any section can flip to ink with <span class="serif accent">.surface-ink</span><span class="accent">.</span></p>
+        <p class="t-h2 ink-demo">
+          Any section can flip to ink with <span class="serif accent">.surface-ink</span
+          ><span class="accent">.</span>
+        </p>
         <PillButton to="/system" arrow>Button on ink</PillButton>
       </div>
     </section>

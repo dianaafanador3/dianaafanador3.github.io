@@ -28,7 +28,9 @@ const external = computed(() => !!props.href && /^https?:/.test(props.href))
     :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener' : undefined"
   >
-    <slot /><span v-if="arrow" class="pill__arrow" aria-hidden="true">{{ external ? '↗' : '→' }}</span>
+    <slot /><span v-if="arrow" class="pill__arrow" aria-hidden="true">{{
+      external ? '↗' : '→'
+    }}</span>
   </a>
   <button v-else type="button" class="pill t-label" :class="`pill--${variant ?? 'outline'}`">
     <slot /><span v-if="arrow" class="pill__arrow" aria-hidden="true">→</span>

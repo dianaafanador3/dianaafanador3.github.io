@@ -12,12 +12,12 @@ const year = new Date().getFullYear()
     <div class="container">
       <div class="footer__cta">
         <SectionLabel>{{ t.footer.label }}</SectionLabel>
-        <h2 class="footer__title t-h1">
-          {{ t.footer.title }}<span class="accent">.</span>
-        </h2>
+        <h2 class="footer__title t-h1">{{ t.footer.title }}<span class="accent">.</span></h2>
         <p class="footer__lead t-lead">{{ t.footer.lead }}</p>
         <div class="footer__links">
-          <PillButton href="https://www.linkedin.com/in/diafanador/" variant="solid" arrow>LinkedIn</PillButton>
+          <PillButton href="https://www.linkedin.com/in/diafanador/" variant="solid" arrow
+            >LinkedIn</PillButton
+          >
           <PillButton href="https://github.com/dianaafanador3" arrow>GitHub</PillButton>
         </div>
       </div>

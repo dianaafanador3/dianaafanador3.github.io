@@ -8,7 +8,12 @@ const { t, locale, setLocale } = useI18n()
 </script>
 
 <template>
-  <div class="lang" :class="{ 'lang--lg': size === 'lg' }" role="group" :aria-label="t.nav.language">
+  <div
+    class="lang"
+    :class="{ 'lang--lg': size === 'lg' }"
+    role="group"
+    :aria-label="t.nav.language"
+  >
     <button
       v-for="l in locales"
       :key="l"
