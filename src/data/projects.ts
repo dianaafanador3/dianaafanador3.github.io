@@ -13,7 +13,7 @@ export const projects: Project[] = [
     },
     thumbnail: project2Thumb,
     href: '/project2/project2.html',
-    tech: ['p5.js'],
+    tags: [{ en: 'Generative art', es: 'Arte generativo', ca: 'Art generatiu' }],
     number: 'P01',
     year: '2025',
   },

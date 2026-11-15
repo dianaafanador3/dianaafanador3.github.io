@@ -16,7 +16,7 @@ const { locale } = useI18n()
         class="project__img"
         loading="lazy"
       />
-      <span class="project__tag t-label">{{ project.tech.join(' · ') }}</span>
+      <span v-if="project.tags?.length" class="project__tag t-label">{{ project.tags.map((tag) => tag[locale]).join(' · ') }}</span>
     </div>
     <div class="project__body">
       <p class="project__meta t-label">
