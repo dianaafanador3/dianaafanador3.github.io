@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover"
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,21 +32,21 @@
                 <div class="sketch-wrapper">
                     <div class="sketch-container" id="sketch-container">
                         <!-- p5.js sketch will be rendered here -->
+                        <button id="fullscreen-btn" class="fullscreen-btn" type="button" aria-pressed="false" aria-label="Toggle fullscreen" title="Toggle Fullscreen" data-i18n-title="fullscreen">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <path
+                                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                                ></path>
+                            </svg>
+                        </button>
                     </div>
-                    <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle Fullscreen" data-i18n-title="fullscreen">
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                        >
-                            <path
-                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
-                            ></path>
-                        </svg>
-                    </button>
                 </div>
 
                 <div class="project-info">

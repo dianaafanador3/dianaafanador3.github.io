@@ -86,15 +86,42 @@ body {
     overflow: hidden;
 }
 .sketch-container canvas {
+    display: block;
     max-width: 100%;
-    height: auto !important;
     border-radius: var(--radius);
 }
 .sketch-container:fullscreen,
-.sketch-container:-webkit-full-screen {
+.sketch-container:-webkit-full-screen,
+.sketch-container.is-pseudo-fullscreen {
     padding: 0;
     border-radius: 0;
     background: #000;
+}
+.sketch-container:fullscreen canvas,
+.sketch-container:-webkit-full-screen canvas,
+.sketch-container.is-pseudo-fullscreen canvas {
+    border-radius: 0;
+}
+
+/* iPhone fallback: pin the sketch over the whole screen */
+.sketch-container.is-pseudo-fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+}
+.sketch-container.is-pseudo-fullscreen .fullscreen-btn {
+    position: fixed;
+    top: max(16px, env(safe-area-inset-top));
+    right: max(16px, env(safe-area-inset-right));
+}
+html.sketch-fullscreen-lock,
+html.sketch-fullscreen-lock body {
+    overflow: hidden;
+    overscroll-behavior: none;
 }
 
 .fullscreen-btn {
