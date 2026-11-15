@@ -1,8 +1,23 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import CircuitLines from '@/components/ui/CircuitLines.vue'
 import { useI18n } from '@/i18n'
+import { experience, education, honors, type Role } from '@/data/resume'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const monthFmt = computed(
+  () => new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' }),
+)
+
+function fmt(ym: string) {
+  const [y, m] = ym.split('-').map(Number)
+  return monthFmt.value.format(new Date(y, m - 1, 1))
+}
+
+function period(r: Role) {
+  return `${fmt(r.start)} — ${r.end ? fmt(r.end) : t.value.resume.present}`
+}
 </script>
 
 <template>
@@ -18,10 +33,17 @@ const { t } = useI18n()
       <section class="resume-section">
         <p class="section-label mono">{{ t.resume.experience }}</p>
         <div class="entry-list">
-          <div class="entry">
-            <p class="entry-period mono">{{ t.resume.period }}</p>
-            <h3 class="entry-title">{{ t.resume.role }}</h3>
-            <p class="entry-org">DiAfanador — Barcelona</p>
+          <div v-for="job in experience" :key="job.company" class="entry">
+            <p class="entry-company">
+              {{ job.company }}<span v-if="job.location" class="entry-location"> · {{ job.location[locale] }}</span>
+            </p>
+            <div v-for="role in job.roles" :key="role.start" class="entry-role">
+              <h3 class="entry-title">{{ role.title[locale] }}</h3>
+              <p class="entry-period mono">{{ period(role) }}</p>
+            </div>
+            <ul v-if="job.highlights" class="entry-highlights">
+              <li v-for="(h, i) in job.highlights" :key="i">{{ h[locale] }}</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -29,17 +51,35 @@ const { t } = useI18n()
       <section class="resume-section">
         <p class="section-label mono">{{ t.resume.education }}</p>
         <div class="entry-list">
-          <div class="entry">
-            <p class="entry-period mono">{{ t.resume.eduPeriod }}</p>
-            <h3 class="entry-title">{{ t.resume.eduDegree }}</h3>
-            <p class="entry-org">{{ t.resume.eduSchool }}</p>
+          <div v-for="study in education" :key="study.period" class="entry">
+            <p class="entry-period mono">
+              {{ study.period }}<template v-if="study.ongoing"> — {{ t.resume.present }}</template>
+            </p>
+            <h3 class="entry-title">{{ study.degree[locale] }}</h3>
+            <p class="entry-org">{{ study.school }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <p class="section-label mono">{{ t.resume.honors }}</p>
+        <div class="entry-list">
+          <div v-for="h in honors" :key="h.org + h.year" class="entry">
+            <p class="entry-period mono">{{ h.year }}</p>
+            <h3 class="entry-title">{{ h.name[locale] }}</h3>
+            <p class="entry-org">{{ h.org }}</p>
           </div>
         </div>
       </section>
 
       <div class="download-row">
-        <a href="#" class="download-btn mono">
-          <span>{{ t.resume.download }}</span>
+        <a
+          href="https://www.linkedin.com/in/diafanador/"
+          class="download-btn mono"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>{{ t.resume.fullProfile }}</span>
         </a>
       </div>
     </div>
@@ -122,6 +162,44 @@ const { t } = useI18n()
 .entry-org {
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+.entry + .entry {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.entry-company {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.entry-location {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.entry-role {
+  margin-bottom: 6px;
+}
+.entry-role .entry-title {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.entry-highlights {
+  margin-top: 10px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.entry-highlights li {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.entry-highlights li::marker {
+  color: var(--trace-lime);
 }
 
 .download-row {
