@@ -23,6 +23,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/ResumePage.vue'),
   },
   {
+    // Living style guide for the design system (not linked in the nav)
+    path: '/system',
+    name: 'system',
+    component: () => import('@/pages/SystemPage.vue'),
+  },
+  {
     // Catch-all — redirect unknown paths to home
     path: '/:pathMatch(.*)*',
     redirect: '/',
@@ -34,7 +40,7 @@ const router = createRouter({
   routes,
   scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) return savedPosition
-    return { top: 0, behavior: 'smooth' }
+    return { top: 0 }
   },
 })
 

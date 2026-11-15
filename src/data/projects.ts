@@ -15,6 +15,6 @@ export const projects: Project[] = [
     href: '/project2/project2.html',
     tech: ['p5.js'],
     number: 'P01',
-    color: 'var(--trace-orange)',
+    year: '2025',
   },
 ]

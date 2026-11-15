@@ -1,55 +1,59 @@
 <script setup lang="ts">
+import { useI18n } from '@/i18n'
+import SectionLabel from '@/components/ui/SectionLabel.vue'
+import PillButton from '@/components/ui/PillButton.vue'
+
+const { t } = useI18n()
 const year = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="app-footer">
-    <div class="footer-trace" aria-hidden="true" />
-    <p class="footer-text">
-      <span class="mono">©{{ year }}</span>
-      <span class="footer-sep">//</span>
-      <span>DiAfanador</span>
-    </p>
+  <footer class="footer surface-ink">
+    <div class="container">
+      <div class="footer__cta">
+        <SectionLabel>{{ t.footer.label }}</SectionLabel>
+        <h2 class="footer__title t-h1">
+          {{ t.footer.title }}<span class="accent">.</span>
+        </h2>
+        <p class="footer__lead t-lead">{{ t.footer.lead }}</p>
+        <div class="footer__links">
+          <PillButton href="https://www.linkedin.com/in/diafanador/" variant="solid" arrow>LinkedIn</PillButton>
+          <PillButton href="https://github.com/dianaafanador3" arrow>GitHub</PillButton>
+        </div>
+      </div>
+
+      <div class="footer__base t-label">
+        <span>© {{ year }} Diana Afanador</span>
+        <span>Barcelona</span>
+      </div>
+    </div>
   </footer>
 </template>
 
 <style scoped>
-.app-footer {
-  padding: clamp(20px, 3vw, 32px) clamp(20px, 5vw, 60px);
-  border-top: 1px solid var(--border);
-  background: var(--bg-nav);
-  border-left: 3px solid var(--trace-orange);
+.footer {
+  padding-top: var(--section-space);
+}
+.footer__title {
+  margin-top: var(--s-5);
+  max-width: 14ch;
+}
+.footer__lead {
+  margin-top: var(--s-4);
+}
+.footer__links {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
 }
-
-/* Decorative trace line above text */
-.footer-trace {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--trace-orange), transparent);
-  opacity: 0.5;
-}
-
-.footer-text {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.75rem;
-  color: var(--text-dim);
+.footer__base {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 0.06em;
-}
-
-.footer-sep {
-  color: var(--trace-orange);
-  opacity: 0.5;
-}
-
-.mono {
-  color: var(--trace-orange);
-  opacity: 0.7;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-top: var(--section-space);
+  padding-block: var(--s-5);
+  border-top: 1px solid var(--rule-ink);
+  color: var(--on-ink-muted);
 }
 </style>

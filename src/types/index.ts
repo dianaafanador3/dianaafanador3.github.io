@@ -9,8 +9,7 @@ export interface Project {
   href: string
   tech: string[]
   number: string
-  /** Section accent color CSS variable name */
-  color: string
+  year: string
 }
 
 export interface BlogPost {
@@ -25,6 +24,4 @@ export interface BlogPost {
 export interface NavItem {
   key: 'portfolio' | 'about' | 'writing' | 'resume'
   to: string
-  /** Section accent color CSS variable */
-  color: string
 }

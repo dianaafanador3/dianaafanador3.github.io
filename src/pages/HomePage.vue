@@ -1,80 +1,141 @@
 <script setup lang="ts">
-import ProjectCarousel from '@/components/portfolio/ProjectCarousel.vue'
-import CircuitLines from '@/components/ui/CircuitLines.vue'
 import { projects } from '@/data/projects'
 import { useI18n } from '@/i18n'
+import SectionLabel from '@/components/ui/SectionLabel.vue'
+import LinkCard from '@/components/ui/LinkCard.vue'
+import PillButton from '@/components/ui/PillButton.vue'
+import ProjectCard from '@/components/portfolio/ProjectCard.vue'
 
 const { t } = useI18n()
+const featured = projects[0]
 </script>
 
 <template>
-  <main class="home-page">
-    <header class="home-header">
-      <!-- Corner circuit decorations -->
-      <CircuitLines position="top-left"     color="var(--trace-yellow)" :size="48" />
-      <CircuitLines position="top-right"    color="var(--trace-yellow)" :size="48" />
-      <CircuitLines position="bottom-left"  color="var(--trace-yellow)" :size="48" />
-      <CircuitLines position="bottom-right" color="var(--trace-yellow)" :size="48" />
+  <main>
+    <!-- Hero -->
+    <section class="hero container">
+      <SectionLabel tone="solid">{{ t.home.label }}</SectionLabel>
 
-      <p class="header-designator mono">{{ t.home.designator }}</p>
-      <h1 class="main-title">DiAfanador</h1>
-      <p class="subtitle">{{ t.home.subtitle }}</p>
-    </header>
+      <div class="hero__grid">
+        <div class="hero__text">
+          <h1 class="hero__title t-display">
+            {{ t.home.line1 }}<br />
+            {{ t.home.line2 }} <span class="serif accent">{{ t.home.accent }}</span><span class="accent">.</span>
+          </h1>
+          <p class="hero__lead t-lead">{{ t.home.lead }}</p>
+        </div>
 
-    <ProjectCarousel :projects="projects" />
+        <div class="hero__cards">
+          <LinkCard
+            :eyebrow="t.home.featuredEyebrow"
+            :title="featured.title"
+            :meta="t.home.featuredMeta"
+            :href="featured.href"
+          />
+          <LinkCard
+            :eyebrow="t.home.careerEyebrow"
+            :title="t.home.careerTitle"
+            :meta="t.home.careerMeta"
+            to="/resume"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section container rule-top">
+      <div class="section-head">
+        <SectionLabel>{{ t.home.workLabel }}</SectionLabel>
+        <h2 class="t-h2">{{ t.home.workTitle }}<span class="accent">.</span></h2>
+      </div>
+      <div class="work-grid">
+        <ProjectCard
+          v-for="p in projects"
+          :key="p.id"
+          :project="p"
+          :class="{ 'project--wide': projects.length === 1 }"
+        />
+      </div>
+    </section>
+
+    <!-- About teaser -->
+    <section class="section surface-panel">
+      <div class="container about">
+        <SectionLabel>{{ t.home.aboutLabel }}</SectionLabel>
+        <p class="about__statement t-h2">{{ t.home.aboutStatement }}</p>
+        <PillButton to="/about" arrow>{{ t.home.aboutCta }}</PillButton>
+      </div>
+    </section>
   </main>
 </template>
 
 <style scoped>
-.home-page {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: clamp(40px, 7vw, 72px) clamp(20px, 5vw, 60px);
-  animation: page-in 0.4s ease-out both;
+.hero {
+  padding-top: clamp(40px, 9vw, 120px);
+  padding-bottom: clamp(56px, 8vw, 112px);
+}
+.hero__grid {
+  display: grid;
+  gap: var(--s-7);
+  margin-top: var(--s-5);
+}
+.hero__title {
+  max-width: 13ch;
+}
+.hero__lead {
+  margin-top: var(--s-5);
+  max-width: 46ch;
+}
+.hero__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  align-self: end;
 }
 
-@keyframes page-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+.section-head {
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+.work-grid {
+  display: grid;
+  gap: var(--s-8);
 }
 
-/* Hero header */
-.home-header {
-  position: relative;
-  text-align: center;
-  margin-bottom: clamp(40px, 7vw, 64px);
-  padding: clamp(24px, 4vw, 40px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-secondary);
+.about {
+  display: grid;
+  gap: var(--s-6);
+  justify-items: start;
+}
+.about__statement {
+  max-width: 22ch;
+  font-weight: 600;
 }
 
-.header-designator {
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  color: var(--trace-yellow);
-  margin-bottom: 16px;
-  opacity: 0.8;
+@media (min-width: 760px) {
+  .work-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  }
+  .work-grid > .project--wide {
+    grid-column: 1 / -1;
+  }
 }
 
-.main-title {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: clamp(2.4rem, 7vw, 5rem);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--text-primary);
-  text-shadow:
-    0 0 40px rgba(255, 214, 0, 0.12),
-    0 0 80px rgba(255, 214, 0, 0.06);
-  margin-bottom: 12px;
+@media (min-width: 1100px) {
+  .hero__grid {
+    grid-template-columns: 1fr 380px;
+    align-items: end;
+  }
+  .hero__title {
+    max-width: none;
+  }
 }
 
-.subtitle {
-  font-size: clamp(0.85rem, 1.8vw, 1rem);
-  color: var(--text-secondary);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+@media (max-width: 400px) {
+  .hero__cards {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
