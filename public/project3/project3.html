@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>DiAfanador - Project 3</title>
+        <link rel="stylesheet" href="project-styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    </head>
+    <body>
+        <div class="project-container">
+            <header class="project-header">
+                <a href="/" class="back-link">← Back to Portfolio</a>
+                <h1 class="project-title">Project 3</h1>
+            </header>
+
+            <main class="project-main">
+                <div class="sketch-wrapper">
+                    <div class="sketch-container" id="sketch-container">
+                        <!-- p5.js sketch will be rendered here -->
+                    </div>
+                    <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle Fullscreen">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path
+                                d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button
+                        id="mode-toggle-btn"
+                        class="mode-toggle-btn"
+                        title="Switch to manual control (use arrow keys)"
+                    >
+                        Manual Mode
+                    </button>
+                </div>
+
+                <div class="project-info">
+                    <h2>Project 3</h2>
+                    <p>An animated screensaver showcasing a collection of images.</p>
+                    <h3>p5.js</h3>
+                </div>
+            </main>
+        </div>
+
+        <!-- p5.js sketch script -->
+        <script src="sketch.js"></script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+/* ─── Circuit Board Design System ─────────────────────────────── */
+:root {
+  /* PCB substrate backgrounds */
+  --bg-primary:   #050a0f;
+  --bg-secondary: #0a1628;
+  --bg-card:      #0d1520;
+  --bg-nav:       #07111e;
+
+  /* Circuit trace accent colors (from reference image) */
+  --trace-orange:  #ff8000;
+  --trace-magenta: #e000d0;
+  --trace-lime:    #39ff14;
+  --trace-yellow:  #ffd600;
+  --trace-cyan:    #00cfff;
+
+  /* Section color map */
+  --section-portfolio: var(--trace-yellow);
+  --section-about:     var(--trace-cyan);
+  --section-writing:   var(--trace-magenta);
+  --section-resume:    var(--trace-lime);
+
+  /* Text */
+  --text-primary:   #e8edf5;
+  --text-secondary: #7a8fa6;
+  --text-mono:      var(--trace-orange);
+  --text-dim:       #3a4f66;
+
+  /* Borders */
+  --border:        rgba(255, 128, 0, 0.18);
+  --border-active: rgba(255, 128, 0, 0.7);
+  --border-hover:  rgba(255, 128, 0, 0.45);
+
+  /* Glow box-shadows */
+  --glow-orange:  0 0 16px rgba(255, 128, 0, 0.4), 0 0 40px rgba(255, 128, 0, 0.15);
+  --glow-magenta: 0 0 16px rgba(224, 0, 208, 0.4), 0 0 40px rgba(224, 0, 208, 0.15);
+  --glow-lime:    0 0 16px rgba(57, 255, 20, 0.4),  0 0 40px rgba(57, 255, 20, 0.15);
+  --glow-cyan:    0 0 16px rgba(0, 207, 255, 0.4),  0 0 40px rgba(0, 207, 255, 0.15);
+  --glow-yellow:  0 0 16px rgba(255, 214, 0, 0.4),  0 0 40px rgba(255, 214, 0, 0.15);
+
+  /* Card shadows */
+  --shadow-card:       0 0 0 1px rgba(255, 128, 0, 0.15), 0 4px 24px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 0 0 1px rgba(255, 128, 0, 0.65), 0 0 40px rgba(255, 128, 0, 0.2);
+
+  /* Shape — PCB uses sharp corners */
+  --radius:    4px;
+  --radius-sm: 2px;
+  --via-size:  8px;
+
+  /* Motion */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-glow: box-shadow 0.2s ease, border-color 0.2s ease;
+}
